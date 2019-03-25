@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="overview_label">Vue d\'ensemble</string>
+    <string name="year_label">Année de sortie</string>
+    <string name="director_label">Directeur</string>
+    <string name="creator_label">créateur</string>
+    <string name="cast_label">Jeter</string>
+    <string name="movies">Films</string>
+    <string name="tv_shows">Émissions de télévision</string>
+    <string name="language">Changer de langue</string>
+</resources>

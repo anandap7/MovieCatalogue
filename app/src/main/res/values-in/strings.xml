@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="overview_label">Ringkasan</string>
+    <string name="year_label">Tahun Rilis</string>
+    <string name="director_label">Sutradara</string>
+    <string name="creator_label">Pembuat</string>
+    <string name="cast_label">Pemeran</string>
+    <string name="movies">Film</string>
+    <string name="tv_shows">Acara TV</string>
+    <string name="language">Ubah Bahasa</string>
+</resources>
