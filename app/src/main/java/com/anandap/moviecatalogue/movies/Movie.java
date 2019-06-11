@@ -3,6 +3,8 @@ package com.anandap.moviecatalogue.movies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Movie implements Parcelable {
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         @Override
@@ -15,66 +17,50 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
-    private String title, year, overview, director, poster, cast;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("vote_average")
+    private String rating;
+    @SerializedName("poster_path")
+    private String poster;
+    @SerializedName("overview")
+    private String overview;
+    @SerializedName("release_date")
+    private String release_date;
 
-    Movie() {
-    }
-
-    private Movie(Parcel in) {
+    protected Movie(Parcel in) {
+        this.id = in.readString();
         this.title = in.readString();
-        this.year = in.readString();
-        this.overview = in.readString();
-        this.director = in.readString();
+        this.rating = in.readString();
         this.poster = in.readString();
-        this.cast = in.readString();
+        this.overview = in.readString();
+        this.release_date = in.readString();
     }
 
     public String getTitle() {
         return title;
     }
 
-    void setTitle(String title) {
-        this.title = title;
+    public String getId() {
+        return id;
     }
 
-    public String getYear() {
-        return year;
+    public String getRating() {
+        return rating;
     }
 
-    void setYear(String year) {
-        this.year = year;
+    public String getPoster() {
+        return "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + poster;
     }
 
     public String getOverview() {
         return overview;
     }
 
-    void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    void setDirector(String director) {
-        this.director = director;
-    }
-
-    public String getPoster() {
-        return poster;
-    }
-
-    void setPoster(String poster) {
-        this.poster = poster;
-    }
-
-    public String getCast() {
-        return cast;
-    }
-
-    void setCast(String cast) {
-        this.cast = cast;
+    public String getRelease_date() {
+        return release_date;
     }
 
     @Override
@@ -84,11 +70,11 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
         dest.writeString(this.title);
-        dest.writeString(this.year);
-        dest.writeString(this.overview);
-        dest.writeString(this.director);
+        dest.writeString(this.rating);
         dest.writeString(this.poster);
-        dest.writeString(this.cast);
+        dest.writeString(this.overview);
+        dest.writeString(this.release_date);
     }
 }

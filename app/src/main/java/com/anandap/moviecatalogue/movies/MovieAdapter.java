@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<Movie> movies;
+    private ArrayList<Movie> movies = new ArrayList<>();
 
     MovieAdapter(Context context) {
         this.context = context;
@@ -43,10 +43,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int i) {
         final Movie movie = getMovies().get(i);
-        String sDirector = context.getResources().getString(R.string.director_label) + " : " + movie.getDirector();
+        String sScore = context.getResources().getString(R.string.rating_label) + " : " + movie.getRating();
         holder.tvTitle.setText(movie.getTitle());
-        holder.tvYear.setText(movie.getYear());
-        holder.tvDirector.setText(sDirector);
+        holder.tvYear.setText(movie.getRelease_date().substring(0, 4));
+        holder.tvDirector.setText(sScore);
         Glide.with(context)
                 .load(movie.getPoster())
                 .apply(new RequestOptions().override(100, 150))
@@ -75,7 +75,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             super(itemView);
             tvTitle = itemView.findViewById(R.id.movie_title);
             tvYear = itemView.findViewById(R.id.movie_year);
-            tvDirector = itemView.findViewById(R.id.movie_director);
+            tvDirector = itemView.findViewById(R.id.movie_rating);
             imgPoster = itemView.findViewById(R.id.movie_image);
             cardView = itemView.findViewById(R.id.movie_cardview);
         }

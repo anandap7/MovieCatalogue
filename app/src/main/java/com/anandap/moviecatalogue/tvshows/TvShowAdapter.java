@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<TvShow> tvShows;
+    private ArrayList<TvShow> tvShows = new ArrayList<>();
 
     TvShowAdapter(Context context) {
         this.context = context;
