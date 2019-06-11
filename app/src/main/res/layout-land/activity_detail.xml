@@ -56,8 +56,9 @@
             style="@style/Text.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/detail_image"
-            android:layout_marginTop="16dp"
+            android:layout_below="@id/detail_rating"
+            android:layout_toEndOf="@id/detail_image"
+            android:layout_marginTop="8dp"
             android:text="@string/overview_label" />
 
         <TextView
@@ -65,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/label_overview"
+            android:layout_toEndOf="@id/detail_image"
             android:layout_marginTop="4dp"
             android:textColor="@color/black" />
     </RelativeLayout>

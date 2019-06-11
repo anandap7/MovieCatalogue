@@ -3,8 +3,10 @@ package com.anandap.moviecatalogue.tvshows;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class TvShow implements Parcelable {
-    public static final Parcelable.Creator<TvShow> CREATOR = new Parcelable.Creator<TvShow>() {
+    public static final Creator<TvShow> CREATOR = new Creator<TvShow>() {
         @Override
         public TvShow createFromParcel(Parcel source) {
             return new TvShow(source);
@@ -15,66 +17,50 @@ public class TvShow implements Parcelable {
             return new TvShow[size];
         }
     };
-    private String title, year, overview, poster, creator, cast;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("name")
+    private String title;
+    @SerializedName("vote_average")
+    private String rating;
+    @SerializedName("poster_path")
+    private String poster;
+    @SerializedName("overview")
+    private String overview;
+    @SerializedName("first_air_date")
+    private String first_air_date;
 
-    TvShow() {
+    protected TvShow(Parcel in) {
+        this.id = in.readString();
+        this.title = in.readString();
+        this.rating = in.readString();
+        this.poster = in.readString();
+        this.overview = in.readString();
+        this.first_air_date = in.readString();
     }
 
-    private TvShow(Parcel in) {
-        this.title = in.readString();
-        this.year = in.readString();
-        this.overview = in.readString();
-        this.poster = in.readString();
-        this.creator = in.readString();
-        this.cast = in.readString();
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    void setTitle(String title) {
-        this.title = title;
+    public String getRating() {
+        return rating;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    void setYear(String year) {
-        this.year = year;
+    public String getPoster() {
+        return "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + poster;
     }
 
     public String getOverview() {
         return overview;
     }
 
-    void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public String getPoster() {
-        return poster;
-    }
-
-    void setPoster(String poster) {
-        this.poster = poster;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-    void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public String getCast() {
-        return cast;
-    }
-
-    void setCast(String cast) {
-        this.cast = cast;
+    public String getFirst_air_date() {
+        return first_air_date;
     }
 
     @Override
@@ -84,11 +70,11 @@ public class TvShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
         dest.writeString(this.title);
-        dest.writeString(this.year);
-        dest.writeString(this.overview);
+        dest.writeString(this.rating);
         dest.writeString(this.poster);
-        dest.writeString(this.creator);
-        dest.writeString(this.cast);
+        dest.writeString(this.overview);
+        dest.writeString(this.first_air_date);
     }
 }

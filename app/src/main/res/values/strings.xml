@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">Movie Catalogue</string>
     <string name="overview_label">Overview</string>
-    <string name="year_label">Release Year</string>
-    <string name="director_label">Director</string>
+    <string name="date_label">Release Date</string>
     <string name="creator_label">Creator</string>
     <string name="cast_label">Cast</string>
     <string name="movies">Movies</string>
     <string name="tv_shows">TV Shows</string>
     <string name="language">Change Language</string>
+    <string name="rating_label">Rating</string>
+    <string name="loading">Loading..</string>
+    <string name="please_wait">Please wait</string>
 </resources>
