@@ -30,6 +30,9 @@ public class Movie implements Parcelable {
     @SerializedName("release_date")
     private String release_date;
 
+    public Movie() {
+    }
+
     protected Movie(Parcel in) {
         this.id = in.readString();
         this.title = in.readString();
@@ -39,28 +42,56 @@ public class Movie implements Parcelable {
         this.release_date = in.readString();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
 
-    public String getId() {
-        return id;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getRating() {
         return rating;
     }
 
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
     public String getPoster() {
         return "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getPosterName() {
+        return poster;
     }
 
     public String getOverview() {
         return overview;
     }
 
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
     public String getRelease_date() {
         return release_date;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
     }
 
     @Override

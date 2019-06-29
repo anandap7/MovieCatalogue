@@ -10,4 +10,7 @@
     <string name="rating_label">Le Score</string>
     <string name="loading">Loading..</string>
     <string name="please_wait">Veuillez patienter</string>
+    <string name="favorites">Favori</string>
+    <string name="add_to_favorite">Ajouté au favori</string>
+    <string name="remove_from_favorite">Retiré de favori</string>
 </resources>

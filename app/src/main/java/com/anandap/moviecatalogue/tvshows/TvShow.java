@@ -30,6 +30,9 @@ public class TvShow implements Parcelable {
     @SerializedName("first_air_date")
     private String first_air_date;
 
+    public TvShow() {
+    }
+
     protected TvShow(Parcel in) {
         this.id = in.readString();
         this.title = in.readString();
@@ -43,24 +46,52 @@ public class TvShow implements Parcelable {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getRating() {
         return rating;
     }
 
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
     public String getPoster() {
         return "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getPosterName() {
+        return poster;
     }
 
     public String getOverview() {
         return overview;
     }
 
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
     public String getFirst_air_date() {
         return first_air_date;
+    }
+
+    public void setFirst_air_date(String first_air_date) {
+        this.first_air_date = first_air_date;
     }
 
     @Override

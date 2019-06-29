@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setElevation(Float.MIN_VALUE);
 
         bottomNavigationView = findViewById(R.id.navigation);
-        viewPager = findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.view_pager_main);
         adapter = new FragmentAdapter(getSupportFragmentManager());
 
         bottomNavigationView.setSelectedItemId(R.id.movies);
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.tv_shows:
                         viewPager.setCurrentItem(1);
+                        return true;
+                    case R.id.favorites:
+                        viewPager.setCurrentItem(2);
                         return true;
                 }
                 return false;
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(2);
     }
 
     @Override
